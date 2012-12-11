@@ -1,0 +1,109 @@
+HOST: http://mojeid.1x.sk/
+
+--- mojeid_1x ---
+---
+Welcome to the our sample API documentation. All comments can be written in (support [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax)
+---
+--
+Contact Resources
+The following is a section of resources related to the contact
+--
+Seznam domén u kterých je kontakt v roli držitele nebo administrativního kontaktu
+GET /contacts/{handle}/domains
+< 200
+< Content-Type: application/json
+{ "domains": [
+    "prvni.cz",
+    "druha.cz"
+] }
+
+Seznam nssetů u kterých je kontakt v roli technického kontaktu
+GET /contacts/{handle}/nssets
+< 200
+< Content-Type: application/json
+{ "nssets": [
+    "NSS-PRVNI",
+    "NSS-DRUHY"
+] }
+
+Seznam keysetů u kterých je kontakt v roli technického kontaktu
+GET /contacts/{handle}/keysets
+< 200
+< Content-Type: application/json
+{ "keysets": [
+    "KSS-PRVNI",
+    "KSS-DRUHY"
+] }
+
+--
+Domain Resources
+The following is a section of resources related to the domain
+--
+
+Seznam domén u kterých je použit NSSET
+GET /nsset/{handle}/domains
+< 200
+< Content-Type: application/json
+{ "nssets": [
+    "prvni.cz",
+    "druha.cz"
+] }
+
+Detail domény
+GET /domains/{fqdn}
+< 200
+< Content-Type: application/json
+{ "name":"prvni.cz",
+  "registrant":"REGPRVNI",
+  "admin_contacts":[
+    {"handle":"PRVNI"},
+    {"handle":"DALSI"}
+  ],
+  "nsset":"NSS",
+  "keyset":"KSS"
+}
+
+--
+Nsset Resources
+The following is a section of resources related to the nsset
+--
+
+Detail nssetu
+GET /nssets/{handle}
+< 200
+< Content-Type: application/json
+{ "handle":"1AB23ORM",
+  "technical_contacts":[
+      {"handle":"PRVNI"},
+      {"handle":"DALSI"}
+    ],
+  "nameservers":[
+      {"hostname":"ns.prvni.cz","addresses":[{"ip":"192.168.1.1"}]},
+      {"hostname":"ns.druhy.com"}
+  ]
+}
+
+--
+Keyset Resources
+The following is a section of resources related to the nsset
+--
+
+Detail keysetu
+GET /keysets/{handle}
+< 200
+< Content-Type: application/json
+{ "handle":"1AB23ORM",
+  "dns_keys":[
+      {
+          "flags":"0",
+          "protocol":"3",
+          "algorithm":"5",
+          "public_key":"AQO1gtiQNJnn/9e5cR76I3Tn1ziRs/p4Ba3wq5jvY1ZOAEfulGBxZy59qj3iLWVyWd5dzYF2KqBES6oToCGxMXmVAP+QIAUCjWR72kwlTyCpg7ZMd2PrcGjAzqPOoFlR7vdYGpIslzbwI71OOZQ7CVLDR8slR16qOMC8Yai8IM9dtmptPRPCEdhM/3T576uPtZGVgGFdCixI9XeN3p8q38FsE7T0wbEUYZBwF1AUrlo2T2d9/6v8wdktxGemxPAX6mXWOYfE3xY0zkoAwcHt5HiB1d/cOr6JB0gJto6gHkfBccIlU/2cJ/Bg3K6A3ER8uPFcCGCuMOA2Qb62IDg0XCA76bJlh1BocPzAjlG8beI9dJz3CZTIW0apneNb4lGyGVmAc2GxvrL/y7GHe9UfwqTnKzXDJcCzKahRNB9xD9TCuUIyChinnxys4BXcGRjMEwPttihgdWjFKDXEWgY7QAMAL1s+hQzWM5TZ2FhSw+tlH4GuH+saeVJ40bdppsqXLD8gwrG9bH6lX6Hu/SIG89WLTC08+mbhg1GDXvti9p/Y4u+EfV69eAG85y9F/tOYvR9Us0llWzg2gtnJr1y/qCgT9bVsyp6xGAd30H0Z0pYr/xXzb4TnKVWZoZGEPdh47dAteFW0R+37Nl62l7dOuunQgzY/RQVli3+fG1Gxizn0tQ=="
+      }
+  ], 
+  "technical_contacts":[
+      {"handle":"PRVNI"},
+      {"handle":"DALSI"}
+  ]
+}
+
