@@ -1,0 +1,31 @@
+--
+Contact Resources
+The following is a section of resources related to the contact
+--
+Seznam domén u kterých je kontakt v roli držitele nebo administrativního kontaktu
+GET /contacts/{handle}/domains
+< 200
+< Content-Type: application/json
+{ "domains": [
+    "prvni.cz",
+    "druha.cz"
+] }
+
+Seznam nssetů u kterých je kontakt v roli technického kontaktu
+GET /contacts/{handle}/nssets
+< 200
+< Content-Type: application/json
+{ "nssets": [
+    "NSS-PRVNI",
+    "NSS-DRUHY"
+] }
+
+Seznam keysetů u kterých je kontakt v roli technického kontaktu
+GET /contacts/{handle}/keysets
+< 200
+< Content-Type: application/json
+{ "keysets": [
+    "KSS-PRVNI",
+    "KSS-DRUHY"
+] }
+

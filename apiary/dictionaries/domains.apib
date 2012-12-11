@@ -1,0 +1,28 @@
+--
+Domain Resources
+The following is a section of resources related to the domain
+--
+
+Seznam domén u kterých je použit NSSET
+GET /nsset/{handle}/domains
+< 200
+< Content-Type: application/json
+{ "nssets": [
+    "prvni.cz",
+    "druha.cz"
+] }
+
+Detail domény
+GET /domains/{fqdn}
+< 200
+< Content-Type: application/json
+{ "name":"prvni.cz",
+  "registrant":"REGPRVNI",
+  "admin_contacts":[
+    {"handle":"PRVNI"},
+    {"handle":"DALSI"}
+  ],
+  "nsset":"NSS",
+  "keyset":"KSS"
+}
+

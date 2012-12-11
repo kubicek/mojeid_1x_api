@@ -1,0 +1,20 @@
+--
+Nsset Resources
+The following is a section of resources related to the nsset
+--
+
+Detail nssetu
+GET /nssets/{handle}
+< 200
+< Content-Type: application/json
+{ "handle":"1AB23ORM",
+  "technical_contacts":[
+      {"handle":"PRVNI"},
+      {"handle":"DALSI"}
+    ],
+  "nameservers":[
+      {"hostname":"ns.prvni.cz","addresses":[{"ip":"192.168.1.1"}]},
+      {"hostname":"ns.druhy.com"}
+  ]
+}
+
